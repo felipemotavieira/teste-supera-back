@@ -1,7 +1,7 @@
 from rest_framework import generics, filters
 from .serializers import ProductSerializer
 from .models import Product
-import ipdb
+
 
 # Create your views here.
 class ProductView(generics.ListCreateAPIView):

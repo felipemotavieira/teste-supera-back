@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import Order
 from products.serializers import ProductSerializer
 from products.models import Product
-import ipdb
+
 
 class OrderSerializer(serializers.Serializer):
     order_products = ProductSerializer(many=True)

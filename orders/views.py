@@ -2,7 +2,7 @@ from rest_framework import generics
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .serializers import OrderSerializer
 from .models import Order
-import ipdb
+
 
 # Create your views here.
 class OrderView(generics.ListCreateAPIView):
