@@ -3,7 +3,7 @@
 ## Acesso à aplicação 
 Para facilitar o acesso à aplicação, optei por fazer deploy no render. Assim, ela pode ser acessada através do link: "https://teste-supera-back.onrender.com/api/{rota desejada: users/products/orders}/". Acessar esse link dará acesso aos templates do Django Rest Framework, onde é possível ter um retorno visual do banco de dados. Esse deploy está conectado com um banco postgres no próprio render, conforme solicitado pelos requisitos do teste.
 
-### Mas também é possível rodar a aplicação locamente:
+### Mas também é possível rodar a aplicação localmente:
 
 Para rodar localmente a aplicação é necessário primeiro abrir um terminal na pasta teste-supera-back. Para rodar o servidor é necessário um ambiente virtual do python. Para criá-lo basta rodar o comando
 
