@@ -4,7 +4,7 @@ from .models import OrdersRelation
 from products.serializers import ProductSerializer
 from products.models import Product
 from users.serializers import UserSerializer
-import ipdb
+
 
 class OrderSerializer(serializers.Serializer):
     order_products = ProductSerializer(many=True)
@@ -43,7 +43,5 @@ class OrderSerializer(serializers.Serializer):
                     prod_per_order.quantity = unique_prod['counter']
 
             prod_per_order.save()
-
-        ipdb.set_trace()
 
         return order
