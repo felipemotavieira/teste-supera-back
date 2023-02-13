@@ -45,10 +45,17 @@ Pronto! O servidor está rodando.
 ### Sobre a aplicação:
 Há três entidades, users, products e orders. Eles podem ser acessados através dos endpoints "{url base, seja local ou a do deploy}/api/users/", "{url base}/api/products/" e "{url base}/api/orders/", respectivamente. Além delas, há também a rota "{url base}/api/login/", utilizada para login. 
 Para cada uma das entidades as rotas disponíveis são GET, POST, PATCH e DELETE. 
+
 A lógica exigida pelos requisitos do teste pode ser encontrada nos arquivos views.py e serializers.py de cada um dos apps do projeto django. 
+
 Por opção própria, também desenvolvi validadores de email e cpf que impedem o cadastro de usuários com o mesmo email ou cpf ja existentes no banco. 
+
 O filtro de produtos foi desenvolvido no views.py do app products. 
+
 Também desenvolvi uma tabela pivô customizada para a relação ManyToMany existente entre products e orders. Optei por fazer isso para que eu pudesse adicionar, através da lógica desenvolvida no serializers.py do app orders, a quantidade de produtos iguais pedida a cada compra, caso o usuário comprasse dois ou mais produtos idênticos na mesma compra. Essa quantidade fica armazenada na tabela pivô chamada OrdersRelation encontrada no arquivo models.py do app orders na coluna quantity. No entanto, o usuário não tem retorno visual sobre essa informação na listagem porque como o foco do teste é o back, preferi focar em outras features, já que um retorno visual dessa informação é de fácil implementação. Caso a aplicação esteja sendo rodada locamente é possível consultar a tabela no db e verificar o cálculo das quantidades de produtos iguais por pedido. 
+
 Optei também por incluir rotas extras não solicitadas, como PATCH, DELETE e GET na função retrieve (em que só um objeto é localizado através do id) simplesmente porque as generic views do django permitem um rápido desenvolvimento dessas rotas. 
+
 Por fim, mais uma informação importante diz respeito à lógica de funcionamento da listagem de produtos do próprio usuário: ela foi desenvolvida nas views do app orders e tal busca é realizada através do token do usuário logado. Portanto, caso um cliente HTTP como insomnia ou postman seja utilizado para os testes, basta inserir o token de login para que o usuário seja reconhecido pela aplicação e somente os seus pedidos retornem na resposta. 
+
 Segue também em anexo um diagrama com a modelagem do banco que utilizei para desenvolver as entidades.
